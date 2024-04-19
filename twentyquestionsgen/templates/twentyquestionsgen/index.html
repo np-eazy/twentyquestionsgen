@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MLP Evaluation</title>
+</head>
+<body>
+    <button id="evaluateBtn">Evaluate MLP</button>
+    <div id="output"></div>
+    <script>
+        document.getElementById('evaluateBtn').addEventListener('click', function() {
+            fetch('/twentyquestionsgen/', {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('output').innerText = 'MLP Output: ' + data.output;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
