@@ -3,7 +3,8 @@ from django.shortcuts import render
 from .mlp import SimpleMLP
 import torch
 
-def index(request):
+def run(request):
+    # Your implementation here
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         model = SimpleMLP()
         model.eval()
@@ -11,4 +12,5 @@ def index(request):
         with torch.no_grad():
             output = model(test_data)
         return JsonResponse({'output': output.numpy().tolist()})
-    return render(request, 'twentyquestionsgen/index.html')
+    return render(request, 'twentyquestionsgen/run.html')
+
