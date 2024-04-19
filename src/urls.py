@@ -19,7 +19,7 @@ from django.urls import path, include
 from .views import index  # Import the index view
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', index, name='index'),  # Add this line for the main index
     path('twentyquestionsgen/', include('twentyquestionsgen.urls')),  # Add this line
 ]
